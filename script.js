@@ -29,64 +29,88 @@ const songs = [
     { title: "超人类", album: "跳舞的梵谷", year: 2017, vector: [-0.8, 1.0, 0.9, 0.6], lyrics: "我不特别，不另类，但是绝对热血。" }
 ];
 
-// 问卷题目
+// 问卷题目 (扩充至 20 题)
 const questions = [
-    {
-        text: "关于“自由”的定义，你更倾向于？",
-        options: [
-            { text: "独自一人，在没有坐标的地图上流浪", score: { solitude: 1, ideal: 0.5 } },
-            { text: "与志同道合的人并肩，去世界任何角落", score: { connection: 1, ideal: 0.5 } }
-        ]
-    },
-    {
-        text: "面对生活的喧嚣与压力，你会？",
-        options: [
-            { text: "保持冷静与清醒，享受那份“寂寞的吵”", score: { solitude: 0.5, calm: 1, toughness: 0.5 } },
-            { text: "开心地作战，大声点用力些，不被谁打败", score: { energetic: 1, toughness: 1 } }
-        ]
-    },
-    {
-        text: "如果一段重要的感情陷入僵局，你的第一反应是？",
-        options: [
-            { text: "理性面对，既然重复无意义，就写下休止符", score: { toughness: 1, realism: 1, solitude: 0.5 } },
-            { text: "细腻感受这份痛，相信明天终会是晴天", score: { vulnerability: 1, ideal: 1, connection: 0.5 } }
-        ]
-    },
-    {
-        text: "你理想的生活基调是？",
-        options: [
-            { text: "在太阳底下发光发热，挑战无限大", score: { energetic: 1, ideal: 1, toughness: 0.5 } },
-            { text: "慢慢地摸索，习惯空白，接受平淡的真实", score: { calm: 1, realism: 1, solitude: 0.5 } }
-        ]
-    },
-    {
-        text: "当感到孤独或“心空空的”时候？",
-        options: [
-            { text: "这是成长的必经之路，我选择自己面对", score: { solitude: 1, toughness: 0.8 } },
-            { text: "渴望一个拥抱，或是一句懂我的“心语”", score: { connection: 1, vulnerability: 0.8 } }
-        ]
-    },
-    {
-        text: "你对规则和束缚的态度是？",
-        options: [
-            { text: "保持沉默的倔强，在心里寻找和平", score: { calm: 0.5, toughness: 1, ideal: 0.5 } },
-            { text: "像超人类一样，跌倒了也要帅气地谢幕", score: { energetic: 1, toughness: 1, realism: 0.5 } }
-        ]
-    },
-    {
-        text: "哪句话更能代表你此刻的心境？",
-        options: [
-            { text: "“我不想要谁给我快乐，因为快乐总带给我不快乐”", score: { solitude: 1, vulnerability: 1, realism: 0.5 } },
-            { text: "“哪怕明天听不到答案，也要继续往上飞”", score: { energetic: 0.5, ideal: 1, toughness: 1 } }
-        ]
-    },
-    {
-        text: "关于梦想与现实的距离？",
-        options: [
-            { text: "现实也许苍白，但我依然相信感觉，相信简单", score: { vulnerability: 0.5, ideal: 1, calm: 0.5 } },
-            { text: "梦想藏在变长的头发里，现在就要站起来冲动一次", score: { energetic: 1, toughness: 0.5, realism: 0.5 } }
-        ]
-    }
+    { text: "关于“自由”的定义，你更倾向于？", options: [
+        { text: "独自一人，在没有坐标的地图上流浪", score: { solitude: 1, ideal: 0.5 } },
+        { text: "与志同道合的人并肩，去世界任何角落", score: { connection: 1, ideal: 0.5 } }
+    ]},
+    { text: "面对生活的喧嚣与压力，你会？", options: [
+        { text: "保持冷静与清醒，享受那份“寂寞的吵”", score: { solitude: 0.5, calm: 1, toughness: 0.5 } },
+        { text: "开心地作战，大声点用力些，不被谁打败", score: { energetic: 1, toughness: 1 } }
+    ]},
+    { text: "如果一段重要的感情陷入僵局，你的第一反应是？", options: [
+        { text: "理性面对，既然重复无意义，就写下休止符", score: { toughness: 1, realism: 1, solitude: 0.5 } },
+        { text: "细腻感受这份痛，相信明天终会是晴天", score: { vulnerability: 1, ideal: 1, connection: 0.5 } }
+    ]},
+    { text: "你理想的生活基调是？", options: [
+        { text: "在太阳底下发光发热，挑战无限大", score: { energetic: 1, ideal: 1, toughness: 0.5 } },
+        { text: "慢慢地摸索，习惯空白，接受平淡的真实", score: { calm: 1, realism: 1, solitude: 0.5 } }
+    ]},
+    { text: "当感到孤独或“心空空的”时候？", options: [
+        { text: "这是成长的必经之路，我选择自己面对", score: { solitude: 1, toughness: 0.8 } },
+        { text: "渴望一个拥抱，或是一句懂我的“心语”", score: { connection: 1, vulnerability: 0.8 } }
+    ]},
+    { text: "你对规则和束缚的态度是？", options: [
+        { text: "保持沉默的倔强，在心里寻找和平", score: { calm: 0.5, toughness: 1, ideal: 0.5 } },
+        { text: "像超人类一样，跌倒了也要帅气地谢幕", score: { energetic: 1, toughness: 1, realism: 0.5 } }
+    ]},
+    { text: "哪句话更能代表你此刻的心境？", options: [
+        { text: "“我不想要谁给我快乐，因为快乐总带给我不快乐”", score: { solitude: 1, vulnerability: 1, realism: 0.5 } },
+        { text: "“哪怕明天听不到答案，也要继续往上飞”", score: { energetic: 0.5, ideal: 1, toughness: 1 } }
+    ]},
+    { text: "关于梦想与现实的距离？", options: [
+        { text: "现实也许苍白，但我依然相信感觉，相信简单", score: { vulnerability: 0.5, ideal: 1, calm: 0.5 } },
+        { text: "梦想藏在变长的头发里，现在就要站起来冲动一次", score: { energetic: 1, toughness: 0.5, realism: 0.5 } }
+    ]},
+    { text: "雨天在窗边看路人，你会想？", options: [
+        { text: "每个人都有自己的雨伞，各走各的路", score: { solitude: 1, realism: 0.5 } },
+        { text: "希望能有一个人，和我一起看这世界下雨", score: { connection: 1, vulnerability: 0.5 } }
+    ]},
+    { text: "你如何处理过去那些带伤的记忆？", options: [
+        { text: "让它隔离，直到我得到免疫", score: { toughness: 1, calm: 0.5, solitude: 0.5 } },
+        { text: "在跌倒的痕迹里寻找成长的神奇", score: { ideal: 1, vulnerability: 0.5 } }
+    ]},
+    { text: "当你走进一个完全陌生的城市？", options: [
+        { text: "把自己隐形，在面具背后看世界多妙", score: { solitude: 1, calm: 0.5, realism: 0.5 } },
+        { text: "立刻起跳，去遇见所有的未知与惊奇", score: { energetic: 1, ideal: 0.5 } }
+    ]},
+    { text: "你相信“永恒”吗？", options: [
+        { text: "永恒不能赶快，开始谁也不明白", score: { calm: 1, ideal: 0.5 } },
+        { text: "所谓的圆度规，不能衡量你的态度", score: { realism: 1, toughness: 0.5 } }
+    ]},
+    { text: "在人群中，你通常是？", options: [
+        { text: "静静地走开，不想在意人们的窃窃私语", score: { solitude: 1, calm: 0.5 } },
+        { text: "站在最顶端，分享自己的勇敢与喜悦", score: { connection: 0.5, energetic: 1, toughness: 0.5 } }
+    ]},
+    { text: "如果生活是一首歌，它应该是？", options: [
+        { text: "清脆的钢琴声，简单而忧郁", score: { calm: 1, vulnerability: 0.5 } },
+        { text: "爆发力的摇滚，热血且爆发", score: { energetic: 1, toughness: 0.5 } }
+    ]},
+    { text: "面对突如其来的变故，你的第一反应是？", options: [
+        { text: "不掉泪，因为还有好多事要努力", score: { toughness: 1, realism: 0.5 } },
+        { text: "想飞却怕高，但依然期待明天更好", score: { vulnerability: 0.5, ideal: 1 } }
+    ]},
+    { text: "你对“老照片”的态度是？", options: [
+        { text: "追究也太傻，某个以后都是无限大", score: { realism: 1, toughness: 0.5 } },
+        { text: "循着钢琴声，去遇见曾经那个自己", score: { ideal: 1, vulnerability: 0.5 } }
+    ]},
+    { text: "你更喜欢的相处模式是？", options: [
+        { text: "两个人的世界，对方能懂我的温度", score: { connection: 1, vulnerability: 0.5 } },
+        { text: "冷眼看待猎物，我更爱自己的节奏", score: { solitude: 1, toughness: 0.5 } }
+    ]},
+    { text: "在太阳底下，你最想做的事？", options: [
+        { text: "做一件对的事，这一天我会很快乐", score: { realism: 1, connection: 0.5 } },
+        { text: "让爱跨界，特写自己跌倒的感觉", score: { ideal: 1, energetic: 0.5 } }
+    ]},
+    { text: "你如何看待“坚持”？", options: [
+        { text: "还不懂坚持，正好让我学会去爱", score: { vulnerability: 1, ideal: 0.5 } },
+        { text: "坚持要像主角般演出，就算有失误", score: { toughness: 1, energetic: 0.5 } }
+    ]},
+    { text: "如果时间可以停止，你希望停在？", options: [
+        { text: "心自由的那一刻，单纯地快乐", score: { solitude: 0.5, ideal: 1, calm: 0.5 } },
+        { text: "出发的那一刻，充满起跑的冲动", score: { energetic: 1, toughness: 0.5, realism: 0.5 } }
+    ]}
 ];
 
 // 状态变量
@@ -130,15 +154,16 @@ function showQuestion() {
 }
 
 function selectOption(opt) {
-    // 累加分数
-    if (opt.score.solitude) userScore.s_c -= opt.score.solitude;
-    if (opt.score.connection) userScore.s_c += opt.score.connection;
-    if (opt.score.calm) userScore.c_e -= opt.score.calm;
-    if (opt.score.energetic) userScore.c_e += opt.score.energetic;
-    if (opt.score.toughness) userScore.t_v += opt.score.toughness;
-    if (opt.score.vulnerability) userScore.t_v -= opt.score.vulnerability;
-    if (opt.score.realism) userScore.r_i -= opt.score.realism;
-    if (opt.score.ideal) userScore.r_i += opt.score.ideal;
+    // 累加分数 (权重调整，20题总量更大，需适当调节步进)
+    const step = 0.5; 
+    if (opt.score.solitude) userScore.s_c -= opt.score.solitude * step;
+    if (opt.score.connection) userScore.s_c += opt.score.connection * step;
+    if (opt.score.calm) userScore.c_e -= opt.score.calm * step;
+    if (opt.score.energetic) userScore.c_e += opt.score.energetic * step;
+    if (opt.score.toughness) userScore.t_v += opt.score.toughness * step;
+    if (opt.score.vulnerability) userScore.t_v -= opt.score.vulnerability * step;
+    if (opt.score.realism) userScore.r_i -= opt.score.realism * step;
+    if (opt.score.ideal) userScore.r_i += opt.score.ideal * step;
 
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
@@ -152,12 +177,12 @@ function showResult() {
     quiz.classList.remove('active');
     result.classList.add('active');
 
-    // 向量标准化（简化处理，映射回 -1 到 1 范围）
+    // 向量标准化（映射回 -1 到 1 范围）
     const userVector = [
-        Math.max(-1, Math.min(1, userScore.s_c / 2)),
-        Math.max(-1, Math.min(1, userScore.c_e / 2)),
-        Math.max(-1, Math.min(1, userScore.t_v / 2)),
-        Math.max(-1, Math.min(1, userScore.r_i / 2))
+        Math.max(-1, Math.min(1, userScore.s_c / 2.5)),
+        Math.max(-1, Math.min(1, userScore.c_e / 2.5)),
+        Math.max(-1, Math.min(1, userScore.t_v / 2.5)),
+        Math.max(-1, Math.min(1, userScore.r_i / 2.5))
     ];
 
     // 计算欧几里得距离
@@ -182,9 +207,77 @@ function showResult() {
     document.getElementById('song-year').textContent = `${matchSong.year} 年`;
     document.getElementById('lyrics-text').textContent = matchSong.lyrics;
     
+    // 绘制坐标线图表 (线性进度条模式)
+    drawChart(userVector);
+
     // 生成简单的人格描述
     const desc = generatePersonalityDesc(userVector, matchSong);
     document.getElementById('personality-desc').textContent = desc;
+}
+
+function drawChart(vector) {
+    const canvas = document.getElementById('result-chart');
+    const ctx = canvas.getContext('2d');
+    const width = 300;
+    const height = 240;
+    const dpr = window.devicePixelRatio || 1;
+    
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    ctx.scale(dpr, dpr);
+    
+    const centerX = width / 2;
+    const rowHeight = 50;
+    const barWidth = 180; // 总轴长
+    
+    const axes = [
+        { left: "孤独", right: "联结", val: vector[0] },
+        { left: "静谧", right: "活力", val: vector[1] },
+        { left: "细腻", right: "倔强", val: vector[2] },
+        { left: "现实", right: "理想", val: vector[3] }
+    ];
+    
+    ctx.clearRect(0, 0, width, height);
+    
+    axes.forEach((axis, i) => {
+        const y = 40 + i * rowHeight;
+        
+        // 1. 绘制背景轴线
+        ctx.strokeStyle = '#eee';
+        ctx.lineWidth = 4;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.moveTo(centerX - barWidth/2, y);
+        ctx.lineTo(centerX + barWidth/2, y);
+        ctx.stroke();
+        
+        // 2. 绘制原点刻度
+        ctx.strokeStyle = '#ccc';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(centerX, y - 5);
+        ctx.lineTo(centerX, y + 5);
+        ctx.stroke();
+        
+        // 3. 绘制进度条 (从中间向左或向右)
+        const progressLen = (axis.val * barWidth) / 2;
+        ctx.strokeStyle = '#f7e07d';
+        ctx.lineWidth = 6;
+        ctx.beginPath();
+        ctx.moveTo(centerX, y);
+        ctx.lineTo(centerX + progressLen, y);
+        ctx.stroke();
+        
+        // 4. 绘制标签
+        ctx.font = '12px "Noto Serif SC"';
+        ctx.textAlign = 'right';
+        ctx.fillStyle = axis.val < -0.1 ? '#333' : '#999';
+        ctx.fillText(axis.left, centerX - barWidth/2 - 15, y + 5);
+        
+        ctx.textAlign = 'left';
+        ctx.fillStyle = axis.val > 0.1 ? '#333' : '#999';
+        ctx.fillText(axis.right, centerX + barWidth/2 + 15, y + 5);
+    });
 }
 
 function generatePersonalityDesc(v, song) {
