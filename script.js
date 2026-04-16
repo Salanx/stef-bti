@@ -52,7 +52,7 @@ const questions = [
     ]},
     { text: "哪句话更能代表你此刻的心境？", options: [
         { text: "“我不想要谁给我快乐，因为快乐总带给我不快乐”", score: { solitude: 1, persistence: 0.5, realism: 0.5 } },
-        { text: "“哪怕明天听不到答案，也要继续往上飞”", score: { energetic: 0.5, ideal: 1, persistence: 0.8 } }
+        { text: "“答案我听不到，也要深呼吸继续往上”", score: { energetic: 0.5, ideal: 1, persistence: 0.8 } }
     ]},
     { text: "关于梦想与现实的距离？", options: [
         { text: "现实也许苍白，但我依然简单地相信着", score: { persistence: 0.5, ideal: 1, calm: 0.5 } },
@@ -84,7 +84,7 @@ const questions = [
     ]},
     { text: "面对突如其来的变故，你的第一反应是？", options: [
         { text: "不掉泪，因为这就是我要求的和平", score: { persistence: 1, realism: 0.5 } },
-        { text: "随它去，反正明天依然会是晴天", score: { detachment: 0.8, ideal: 1 } }
+        { text: "不去寻找，因为明天也许会更好", score: { detachment: 0.8, ideal: 1 } }
     ]},
     { text: "你对“老照片”的态度是？", options: [
         { text: "某个情节何需惊讶，追究也太傻", score: { detachment: 1, realism: 1 } },
