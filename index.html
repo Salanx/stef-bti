@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stef-BTI: 和你最契合的孙燕姿冷门金曲</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- 封面页 -->
+        <section id="cover" class="active">
+            <div class="content">
+                <h1>Stef-BTI</h1>
+                <p class="subtitle">寻找和你最契合的孙燕姿冷门金曲</p>
+                <div class="intro">
+                    有些旋律，注定只会被少数人听懂。<br>
+                    在那些不被大众偏爱的音轨里，藏着你的人生态度。
+                </div>
+                <button id="start-btn">开始测试</button>
+            </div>
+            <div class="footer">Inspired by Stefanie Sun's Rare Gems</div>
+        </section>
+
+        <!-- 答题页 -->
+        <section id="quiz">
+            <div class="progress-bar">
+                <div id="progress" style="width: 0%"></div>
+            </div>
+            <div class="question-container">
+                <div id="question-text">问题加载中...</div>
+                <div id="options" class="options">
+                    <!-- 动态生成 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 结果页 -->
+        <section id="result">
+            <div class="result-header">
+                <h2>你的专属冷门金曲是</h2>
+                <h1 id="song-title">歌曲标题</h1>
+            </div>
+            <div class="song-card">
+                <div class="song-info">
+                    <p id="song-album">专辑名称</p>
+                    <p id="song-year">发行年份</p>
+                </div>
+                <div class="lyrics-quote">
+                    <p id="lyrics-text">歌词金句...</p>
+                </div>
+                <div class="analysis">
+                    <h3>人格画像</h3>
+                    <p id="personality-desc">测试结果分析...</p>
+                </div>
+            </div>
+            <button id="restart-btn">重新测试</button>
+            <div class="share-tip">截图分享你的态度</div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

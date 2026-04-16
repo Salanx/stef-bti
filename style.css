@@ -1,0 +1,231 @@
+:root {
+    --primary-color: #f7e07d; /* 暖黄 */
+    --accent-color: #8cc9f0; /* 天空蓝 */
+    --text-color: #333;
+    --bg-color: #fdfdfd;
+    --card-bg: #fff;
+    --border-radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Serif SC', 'PingFang SC', 'Microsoft YaHei', serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+#app {
+    max-width: 500px;
+    margin: 0 auto;
+    height: 100vh;
+    position: relative;
+}
+
+section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: translateY(20px);
+}
+
+section.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* 封面页样式 */
+#cover {
+    background: linear-gradient(135deg, #fff 0%, #fff9e6 100%);
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    letter-spacing: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.intro {
+    font-size: 0.95rem;
+    color: #888;
+    margin-bottom: 3rem;
+    line-height: 2;
+}
+
+button {
+    background-color: var(--text-color);
+    color: #fff;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-family: inherit;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    letter-spacing: 2px;
+}
+
+button:hover {
+    background-color: #000;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.footer {
+    position: absolute;
+    bottom: 30px;
+    font-size: 0.75rem;
+    color: #ccc;
+    letter-spacing: 1px;
+}
+
+/* 答题页样式 */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #eee;
+}
+
+#progress {
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.question-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+#question-text {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.options {
+    display: grid;
+    gap: 15px;
+}
+
+.option-btn {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.option-btn:hover {
+    background: #f9f9f9;
+    border-color: var(--accent-color);
+}
+
+/* 结果页样式 */
+#result {
+    overflow-y: auto;
+    padding-top: 60px;
+    justify-content: flex-start;
+}
+
+.result-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.result-header h2 {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.song-card {
+    background: #fff;
+    width: 100%;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.song-info {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.lyrics-quote {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    padding-left: 15px;
+    border-left: 3px solid var(--primary-color);
+    font-style: italic;
+}
+
+.analysis h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+#personality-desc {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: justify;
+}
+
+.share-tip {
+    margin-top: 20px;
+    font-size: 0.75rem;
+    color: #bbb;
+}
+
+#restart-btn {
+    background: transparent;
+    color: #888;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2.5rem; }
+    #question-text { font-size: 1.2rem; }
+}
