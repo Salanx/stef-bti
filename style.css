@@ -271,11 +271,22 @@ button:active {
     font-weight: 300;
 }
 
+.result-controls {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    justify-content: center;
+}
+
+#save-btn {
+    background-color: var(--accent-color);
+}
+
 #restart-btn {
     background: transparent;
     color: #888;
     border: 1px solid #ddd;
-    margin-top: 10px;
+    flex-shrink: 0;
 }
 
 @media (max-width: 480px) {

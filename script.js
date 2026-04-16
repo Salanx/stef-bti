@@ -119,6 +119,7 @@ const quiz = document.getElementById('quiz');
 const result = document.getElementById('result');
 const startBtn = document.getElementById('start-btn');
 const restartBtn = document.getElementById('restart-btn');
+const saveBtn = document.getElementById('save-btn');
 const prevBtn = document.getElementById('prev-btn');
 const questionText = document.getElementById('question-text');
 const optionsContainer = document.getElementById('options');
@@ -127,6 +128,7 @@ const progressBar = document.getElementById('progress');
 // 初始化
 startBtn.addEventListener('click', startQuiz);
 restartBtn.addEventListener('click', restartQuiz);
+saveBtn.addEventListener('click', captureResult);
 prevBtn.addEventListener('click', prevQuestion);
 
 function startQuiz() {
@@ -321,4 +323,41 @@ function restartQuiz() {
     userScore = { s_c: 0, c_e: 0, p_d: 0, r_i: 0 };
     result.classList.remove('active');
     cover.classList.add('active');
+}
+
+function captureResult() {
+    const resultSection = document.getElementById('result');
+    const controls = document.querySelector('.result-controls');
+    const tip = document.querySelector('.share-tip');
+    
+    // 截图前隐藏按钮和提示
+    controls.style.display = 'none';
+    tip.style.display = 'none';
+    
+    html2canvas(resultSection, {
+        useCORS: true,
+        backgroundColor: "#fdfdfd",
+        scale: 2, // 提高清晰度
+        logging: false,
+        onclone: (clonedDoc) => {
+            // 在克隆的文档中确保 section 是可见的且高度完整
+            const clonedSection = clonedDoc.getElementById('result');
+            clonedSection.style.height = 'auto';
+            clonedSection.style.overflow = 'visible';
+            clonedSection.style.position = 'relative';
+        }
+    }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = `Stef-TI-${document.getElementById('song-title').textContent}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+        
+        // 恢复显示
+        controls.style.display = 'flex';
+        tip.style.display = 'block';
+    }).catch(err => {
+        console.error('截图失败:', err);
+        controls.style.display = 'flex';
+        tip.style.display = 'block';
+    });
 }

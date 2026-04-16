@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stef-BTI: 和你最契合的孙燕姿冷门金曲</title>
+    <title>Stef-TI: 和你最契合的孙燕姿冷门金曲</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
         <!-- 封面页 -->
         <section id="cover" class="active">
             <div class="content">
-                <h1>Stef-BTI</h1>
+                <h1>Stef-TI</h1>
                 <p class="subtitle">寻找和你最契合的孙燕姿冷门金曲</p>
                 <div class="intro">
                     有些旋律，注定只会被少数人听懂。<br>
@@ -47,7 +47,7 @@
                 <h2>你的专属冷门金曲是</h2>
                 <h1 id="song-title">歌曲标题</h1>
             </div>
-            
+
             <div class="chart-container">
                 <canvas id="result-chart"></canvas>
             </div>
@@ -65,11 +65,15 @@
                     <p id="personality-desc">测试结果分析...</p>
                 </div>
             </div>
-            <button id="restart-btn">重新测试</button>
-            <div class="share-tip">截图分享你的态度</div>
-            <div class="site-tag">stef-bti.netlify.app</div>
+            <div class="result-controls">
+                <button id="save-btn">生成分享图</button>
+                <button id="restart-btn">重新测试</button>
+            </div>
+            <div class="share-tip">点击生成完整长图分享</div>
+            <div class="site-tag">stef-ti.netlify.app</div>
         </section>
     </div>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
