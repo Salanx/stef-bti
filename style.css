@@ -155,6 +155,34 @@ button:active {
     border-color: var(--accent-color);
 }
 
+.quiz-controls {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.secondary-btn {
+    background: transparent !important;
+    color: #aaa !important;
+    border: 1px solid #eee !important;
+    padding: 10px 25px !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 1px !important;
+}
+
+.secondary-btn:hover {
+    color: #666 !important;
+    border-color: #ccc !important;
+}
+
+#prev-btn {
+    display: none; /* 初始隐藏 */
+}
+
+#prev-btn.visible {
+    display: block;
+}
+
 /* 结果页样式 */
 #result {
     overflow-y: auto;
@@ -231,6 +259,16 @@ button:active {
     margin-top: 20px;
     font-size: 0.75rem;
     color: #bbb;
+}
+
+.site-tag {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 0.8rem;
+    color: #ddd;
+    letter-spacing: 2px;
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 300;
 }
 
 #restart-btn {
